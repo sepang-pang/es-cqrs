@@ -30,7 +30,7 @@ public class ReqProductPostDTO {
         private String description;
 
         @NotNull(message = "상품 가격을 입력해주세요.")
-        private BigDecimal price;
+        private int price;
 
     }
 }

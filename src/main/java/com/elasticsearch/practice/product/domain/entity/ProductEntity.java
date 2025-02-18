@@ -8,7 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -29,7 +28,7 @@ public class ProductEntity {
     private String description;
 
     @Column(name = "price", nullable = false)
-    private BigDecimal price;
+    private int price;
 
     @Column(name = "status", nullable = false)
     @Enumerated(value = EnumType.STRING)
@@ -40,14 +39,14 @@ public class ProductEntity {
     private LocalDateTime createdAt;
 
     @Builder
-    public ProductEntity(String name, String description, BigDecimal price, ProductStatus status) {
+    public ProductEntity(String name, String description, int price, ProductStatus status) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.status = status;
     }
 
-    public static ProductEntity create(String name, String description, BigDecimal price, ProductStatus status) {
+    public static ProductEntity create(String name, String description, int price, ProductStatus status) {
         return ProductEntity.builder()
                 .name(name)
                 .description(description)
