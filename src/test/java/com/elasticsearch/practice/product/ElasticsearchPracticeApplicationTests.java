@@ -1,4 +1,4 @@
-package com.elasticsearch.practice.prodcut;
+package com.elasticsearch.practice.product;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
