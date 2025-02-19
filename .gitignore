@@ -38,3 +38,6 @@ out/
 
 ### key.yml ###
 /src/main/resources/application-key.yml
+
+### .DS_Store ###
+.DS_Store
