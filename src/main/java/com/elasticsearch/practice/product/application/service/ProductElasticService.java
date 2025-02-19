@@ -1,12 +1,9 @@
 package com.elasticsearch.practice.product.application.service;
 
-import com.elasticsearch.practice.product.application.response.ResProductGetDTO;
-import com.elasticsearch.practice.product.infrastructure.messaging.dto.ProductMessageDTO;
-import org.springframework.data.domain.Pageable;
-
 public interface ProductElasticService {
 
-    void createProductDocument(ProductMessageDTO dto);
+    // TODO : Document 를 저장하는 구현체를 작성해주세요.
 
-    ResProductGetDTO searchProductDocument(Pageable pageable, String name, Long minPrice, Long maxPrice, String status, String sort);
+    // TODO : Document 를 검색하는 구현체를 작성해주세요.
+
 }

@@ -1,8 +1,7 @@
 package com.elasticsearch.practice.product.application.service;
 
-import com.elasticsearch.practice.product.infrastructure.messaging.dto.ProductMessageDTO;
-
 public interface KafkaService {
 
-    void send(String topic, ProductMessageDTO dto);
+    // TODO : 상품 생성 이벤트를 처리하는 로직을 구현해주세요.
+
 }

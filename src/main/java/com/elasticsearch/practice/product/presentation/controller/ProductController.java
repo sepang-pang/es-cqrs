@@ -3,7 +3,6 @@ package com.elasticsearch.practice.product.presentation.controller;
 import com.elasticsearch.practice.product.application.response.ResDTO;
 import com.elasticsearch.practice.product.application.response.ResProductGetDTO;
 import com.elasticsearch.practice.product.application.response.ResProductPostDTO;
-import com.elasticsearch.practice.product.application.service.ProductElasticService;
 import com.elasticsearch.practice.product.application.service.ProductService;
 import com.elasticsearch.practice.product.presentation.request.ReqProductPostDTO;
 import jakarta.validation.Valid;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 public class ProductController {
 
     private final ProductService productService;
-    private final ProductElasticService productElasticService;
 
     @PostMapping("/products")
     public ResponseEntity<ResDTO<ResProductPostDTO>> createProduct(@RequestBody @Valid ReqProductPostDTO dto) {
@@ -41,16 +39,10 @@ public class ProductController {
                                                                   @RequestParam(name = "status", required = false) String status,
                                                                   @RequestParam(name = "sort", required = false) String sort) {
 
-        return new ResponseEntity<>(
-                ResDTO.<ResProductGetDTO>builder()
-                        .code(HttpStatus.OK.value())
-                        .message("상품 검색에 성공하였습니다.")
-                        .data(productElasticService.searchProductDocument(
-                                pageable, name, minPrice, maxPrice, status, sort
-                        ))
-                        .build(),
-                HttpStatus.OK
-        );
+
+        // TODO : elasticsearch 와 연동하여 검색된 결과값을 반환하는 로직을 추가해주세요.
+
+        return null;
     }
 
 }

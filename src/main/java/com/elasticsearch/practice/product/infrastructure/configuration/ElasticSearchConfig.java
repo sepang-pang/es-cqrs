@@ -15,8 +15,9 @@ public class ElasticSearchConfig extends ElasticsearchConfiguration {
 
     @Override
     public ClientConfiguration clientConfiguration() {
-        return ClientConfiguration.builder()
-                .connectedTo(host)
-                .build();
+
+        // TODO : elasticsearch 의 클라이언트 설정을 구현해주세요.
+
+        return null;
     }
 }

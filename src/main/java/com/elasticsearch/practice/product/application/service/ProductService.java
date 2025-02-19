@@ -2,9 +2,7 @@ package com.elasticsearch.practice.product.application.service;
 
 import com.elasticsearch.practice.product.application.response.ResProductPostDTO;
 import com.elasticsearch.practice.product.domain.constraint.ProductStatus;
-import com.elasticsearch.practice.product.domain.constraint.ProductTopic;
 import com.elasticsearch.practice.product.domain.entity.ProductEntity;
-import com.elasticsearch.practice.product.infrastructure.messaging.dto.ProductMessageDTO;
 import com.elasticsearch.practice.product.infrastructure.repository.ProductRepository;
 import com.elasticsearch.practice.product.presentation.request.ReqProductPostDTO;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class ProductService {
 
     private final ProductRepository productRepository;
-    private final KafkaService kafkaService;
 
     @Transactional
     public ResProductPostDTO createProduct(ReqProductPostDTO dto) {
@@ -32,8 +29,7 @@ public class ProductService {
         // 상품 저장
         productRepository.save(productEntityForSaving);
 
-        // 상품 생성 이벤트 발행
-        kafkaService.send(ProductTopic.CREATE_PRODUCT.getTopic(), ProductMessageDTO.of(productEntityForSaving));
+        // TODO : 상품 생성 이벤트를 처리하는 로직을 구현해주세요.
 
         return ResProductPostDTO.of(productEntityForSaving);
     }
